@@ -31,11 +31,23 @@ namespace VisualPathfindingAlgo
 
             if(File.Exists(System.IO.Path.GetFullPath(recentPath)))
             {
-                string[] recentFiles = File.ReadAllLines(System.IO.Path.GetFullPath(recentPath));
-
-                for (int i = 0; i < recentFiles.Length; i++)
+                List<string> recentFiles = File.ReadAllLines(System.IO.Path.GetFullPath(recentPath)).ToList();
+                bool changed = false;
+                for (int i = 0; i < recentFiles.Count; i++)
                 {
-                    listRecent.Items.Add(recentFiles[i]);
+                    if (File.Exists(System.IO.Path.GetFullPath(recentFiles[i])))
+                    {
+                        listRecent.Items.Add(recentFiles[i]);
+                    }
+                    else
+                    {
+                        recentFiles.Remove(recentFiles[i]);
+                        changed = true;
+                    }
+                }
+                if(changed)
+                {
+                    File.WriteAllLines(System.IO.Path.GetFullPath(recentPath), recentFiles.ToArray());
                 }
             }
         }

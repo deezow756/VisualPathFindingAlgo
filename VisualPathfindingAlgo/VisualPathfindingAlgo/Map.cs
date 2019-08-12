@@ -39,11 +39,12 @@ namespace VisualPathfindingAlgo
                 {
                     if (Matrix[i, j] == 1)
                     {
+                        System.Windows.Shapes.
                         Line line = new Line();
                         line.X1 = ((Nodes[i].X + 1) * Multi) + 10;
                         line.Y1 = ((Nodes[i].Y + 1) * Multi) + 10;
                         line.X2 = ((Nodes[j].X + 1) * Multi) + 10;
-                        line.Y2 = ((Nodes[j].Y + 1) * Multi) + 10;
+                        line.Y2 = ((Nodes[j].Y + 1) * Multi) + 10;                        
 
                         SolidColorBrush brushColour = new SolidColorBrush();
                         brushColour.Color = Colors.Black;

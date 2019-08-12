@@ -107,6 +107,7 @@ namespace VisualPathfindingAlgo
             else
             {
                 MessageBox.Show("File Path Was Invalid");
+                return;
             }
         }
     }
